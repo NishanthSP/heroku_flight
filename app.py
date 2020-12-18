@@ -12,6 +12,14 @@ model = pickle.load(open("flight_rf.pkl", "rb"))
 def home():
 	return render_template('index.html')
 
+@app.route('/blogs')
+def blog():
+	return render_template('blog.html')
+
+@app.route("/contact")
+def contact():
+	return render_template('contact.html')
+
 @app.route("/predict", methods = ["GET", "POST"])
 def predict():
 
@@ -320,13 +328,7 @@ def predict():
 
 	return render_template("index.html")
 
-@app.route('/blogs')
-def blog():
-	return render_template('post.html')
 
-@app.route("/contact")
-def contact():
-	return render_template('contact.html')
 
 if __name__ == "__main__":
 	app.run(debug=True)
